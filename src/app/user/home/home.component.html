@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row" style="text-align:center">
+    <div class="col-md-12 title1" style="font-size:22px"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col-md-12">  
+        <h2> User Details</h2>  
+        <div class="table-responsive table-container"> 
+
+          <table class="table table-bordered">  
+            <thead>  
+              <tr>  
+                <th>Id</th>  
+                <th>First Name</th>  
+                <th>Last Name</th>  
+                <th>Email</th>  
+              </tr>  
+            </thead>  
+            <tbody>  
+              <tr *ngFor="let user of allUser.data">  
+                <td>{{user.userId}}</td>  
+                <td *ngIf="user.userId===allUsers"><input type="text" [(ngModel)]="user.firstName"</td>
+                <td *ngIf="user.userId!==allUsers" (click)="editUsers(user.firstName)" >{{user.firstName}}</td>  
+                <td>{{user.lastName}}</td>  
+                <td>{{user.email}}</td>  
+                <td>  
+                  <button  class="btn btn-info" (click)='deleteUsers(user.userId)'>  Delete</button>  
+                  <button  style="margin-left: 20px;" class="btn btn-info" (click)='editUsers(user.userId,user.firstName,user.lastName,user.email)'> Edit</button>  
+                </td>  
+              </tr>  
+            </tbody>  
+          </table>  
+        </div>  
+      </div>
